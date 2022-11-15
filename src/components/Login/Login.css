@@ -1,0 +1,93 @@
+.container {
+  position: relative;
+  width: 430px;
+  background-color: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.container .form {
+  padding: 2.5rem;
+}
+
+.container .form .title {
+  position: relative;
+  font-size: 2rem;
+  font-weight: 600;
+}
+.container .form .title::before {
+  position: absolute;
+  content: "";
+  left: 1px;
+  bottom: 3px;
+  height: 3px;
+  width: 25px;
+  background-color: #ade8f4;
+  border-radius: 25px;
+}
+form {
+  margin-top: 30px;
+}
+
+.form .input-field {
+  position: relative;
+  height: 50px;
+  margin-top: 12px;
+}
+
+.input-field input {
+  width: 100%;
+  height: 100%;
+  padding-left: 35px;
+  border-radius: 10px;
+  border-color: black;
+}
+.input-field i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding-left: 10px;
+  color: #999;
+  font-size: 23px;
+}
+.input-field i.icon {
+  left: 0;
+}
+.input-field i.show-hide {
+  right: 0;
+  padding-right: 5px;
+  cursor: pointer;
+  transition: 300ms;
+}
+.input-field i.show-hide:hover {
+  color: black;
+}
+
+.button {
+  margin: 12px auto;
+  width: 100%;
+  height: 45px;
+  border-radius: 10px;
+  border-color: transparent;
+  background-color: #ade8f4;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: medium;
+  transition: 300ms;
+}
+.button:hover,
+.button:active {
+  background-color: #023e8a;
+  color: #fff;
+}
+
+.signup-text {
+  padding-left: 5px;
+  text-decoration: underline;
+  color: #023e8a;
+  cursor: pointer;
+}
+.signup-text:hover,
+.signup-text:active {
+  color: #03045e;
+}
