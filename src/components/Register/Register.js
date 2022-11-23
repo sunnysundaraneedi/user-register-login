@@ -1,3 +1,4 @@
+import "./Register.css";
 import { useState } from "react";
 import { db } from "../../firebase/firebase";
 import { collection, addDoc } from "firebase/firestore";
@@ -13,6 +14,7 @@ const Register = () => {
     phNumber: "",
     role: "",
   });
+  console.log(inputFields);
   const changeHandler = (event) => {
     setInputFields((prevState) => {
       return { ...prevState, [event.target.name]: event.target.value };
@@ -73,7 +75,7 @@ const Register = () => {
                 value={inputFields.password}
                 onChange={changeHandler}
                 name="password"
-                type="text"
+                type="password"
                 placeholder="Enter your password"
               />
               <i className="uil uil-padlock icon"></i>
@@ -88,14 +90,18 @@ const Register = () => {
               />
               <i className="uil uil-phone icon"></i>
             </div>
+
             <div className="input-field">
-              <input
+              <select
+                className="select-opt"
                 value={inputFields.role}
                 onChange={changeHandler}
                 name="role"
-                type="select"
-                placeholder="Enter your role(Admin/Guest)"
-              />
+              >
+                <option>----Select----</option>
+                <option>Guest</option>
+                <option>Admin</option>
+              </select>
               <i className="uil uil-book icon"></i>
             </div>
             <button className="button">Register</button>

@@ -9,6 +9,7 @@ const Home = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((state) => state.login.currentUser);
+  console.log(user);
 
   const showHideModal = useSelector((state) => state.login.showModal);
 
@@ -29,7 +30,7 @@ const Home = () => {
     userRole === "admin"
       ? { backgroundColor: "white", color: "black" }
       : { color: "white" };
-
+  const btnStyle = userRole === "guest" ? { padding: "9px 18px" } : {};
   return (
     <Fragment>
       <div className="home-container">
@@ -48,12 +49,16 @@ const Home = () => {
           <div className="profile-description">
             <div className="title-edit">
               <p>Name</p>
-              <i className="uil uil-edit" onClick={modalHandler}></i>
+              {userRole === "admin" && (
+                <i className="uil uil-edit" onClick={modalHandler}></i>
+              )}
             </div>
             <h3>{user.data.fullname}</h3>
             <div className="title-edit">
               <p>Email</p>
-              <i className="uil uil-edit" onClick={modalHandler}></i>
+              {userRole === "admin" && (
+                <i className="uil uil-edit" onClick={modalHandler}></i>
+              )}
             </div>
             <h3>{user.data.email}</h3>
           </div>
@@ -63,34 +68,48 @@ const Home = () => {
             <div className="profile-description">
               <div className="title-edit">
                 <p>Name</p>
-                <i className="uil uil-edit" onClick={modalHandler}></i>
+                {userRole === "admin" && (
+                  <i className="uil uil-edit" onClick={modalHandler}></i>
+                )}
               </div>
               <h3>{user.data.fullname}</h3>
               <div className="title-edit">
                 <p>Email</p>
-                <i className="uil uil-edit" onClick={modalHandler}></i>
+                {userRole === "admin" && (
+                  <i className="uil uil-edit" onClick={modalHandler}></i>
+                )}
               </div>
               <h3>{user.data.email}</h3>
               <div className="title-edit">
                 <p>Contact Number</p>
-                <i className="uil uil-edit" onClick={modalHandler}></i>
+                {userRole === "admin" && (
+                  <i className="uil uil-edit" onClick={modalHandler}></i>
+                )}
               </div>
               <h3>{user.data.phNumber}</h3>
               <div className="title-edit">
                 <p>Address</p>
-                <i className="uil uil-edit" onClick={modalHandler}></i>
+                {userRole === "admin" && (
+                  <i className="uil uil-edit" onClick={modalHandler}></i>
+                )}
               </div>
               <h3>{user.data.address}</h3>
             </div>
           </div>
         </div>
         <div className="action-btns">
-          <button className="action-btn" onClick={logoutHandler}>
+          <button
+            className="action-btn"
+            style={btnStyle}
+            onClick={logoutHandler}
+          >
             Logout
           </button>
-          <button className="action-btn" onClick={modalHandler}>
-            Update Profile
-          </button>
+          {userRole === "admin" && (
+            <button className="action-btn" onClick={modalHandler}>
+              Update Profile
+            </button>
+          )}
         </div>
       </div>
       {showHideModal && <EditProfile />}

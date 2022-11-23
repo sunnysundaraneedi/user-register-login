@@ -72,6 +72,7 @@
   font-weight: 500;
   font-size: small;
   transition: 300ms;
+  /* padding: 9px 18px; */
 }
 .action-btn:hover,
 .action-btn:active {

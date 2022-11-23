@@ -102,16 +102,7 @@ const EditProfile = () => {
                 />
                 <i className="uil uil-phone icon"></i>
               </div>
-              <div className="input-field">
-                <input
-                  value={inputFields.role}
-                  onChange={changeHandler}
-                  name="role"
-                  type="select"
-                  placeholder="Enter your role(Admin/Guest)"
-                />
-                <i className="uil uil-book icon"></i>
-              </div>
+
               <button className="button">Update</button>
             </form>
           </div>
